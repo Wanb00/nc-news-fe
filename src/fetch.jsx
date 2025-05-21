@@ -18,7 +18,13 @@ export const getArticleById = (article_id) => {
     .then((res) => res.data.article);
 }
 
-export const getCommentsByArticle = (id) => {
-    return apiClient.get(`/articles/${id}/comments`)
-    .then((res) => res.data.comments);
+export const getCommentsByArticle = (article_id) => {
+    return apiClient.get(`/articles/${article_id}/comments`)
+    .then((res) => {
+        if (res.data && res.data.comments) {
+            return res.data.comments;
+        } else {
+            return [];
+        }
+    })
 }

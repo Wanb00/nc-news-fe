@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getArticleById } from "../fetch";
+import { getArticleById, getCommentsByArticle } from "../fetch";
 import CommentCard from "./CommentCard";
 
 
@@ -15,15 +15,17 @@ const ArticlePage = () => {
             getArticleById(article_id),
             getCommentsByArticle(article_id)
         ])
-        .then((article, comments) => {
+        .then(([article, commentsArr]) => {
+            console.log(commentsArr)
             setArticle(article);
-            setComments(comments);
+            setComments(commentsArr);
             setLoading(false);
         })
     }, [article_id])
 
     if (loading) return <p>Loading article...</p>;
     if (!article) return <p>Article not found.</p>;
+    if (!comments) return <p>Comments could not be loaded...</p>
 
     return (
         <div className="container">
