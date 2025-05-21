@@ -12,3 +12,8 @@ export const getAllArticles = () => {
         return [];
     });
 };
+
+export const getArticleById = (article_id) => {
+    return apiClient.get(`/articles/${article_id}`)
+    .then((res) => res.data.article)
+}
