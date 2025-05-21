@@ -15,5 +15,10 @@ export const getAllArticles = () => {
 
 export const getArticleById = (article_id) => {
     return apiClient.get(`/articles/${article_id}`)
-    .then((res) => res.data.article)
+    .then((res) => res.data.article);
+}
+
+export const getCommentsByArticle = (id) => {
+    return apiClient.get(`/articles/${id}/comments`)
+    .then((res) => res.data.comments);
 }
