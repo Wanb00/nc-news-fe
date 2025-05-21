@@ -46,3 +46,15 @@
 .article-card h2 {
   margin-top: 0;
 }
+
+.comments-section {
+  border-top: 1px solid #ccc;
+  padding-top: 1rem;
+}
+
+.comment-card {
+  background-color: #f1f1f1;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
