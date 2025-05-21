@@ -4,18 +4,39 @@
 
 .header {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 2rem;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  justify-content: center;
+  text-align: center;
+  background-color: #5f3c3c;
+  padding: 1rem 0;
 }
 
 .nav-link {
-  margin-right: 1rem;
+  margin-left: 1rem;
+  margin-right: 1.5rem;
   text-decoration: none;
-  color: #806c6c;
+  color: #a19e9e;
   font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.latest-articles {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.latest-article-section {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
 }
 
 .article-card {
+  display: flex;
+  flex-flow: column wrap;
+  width: 50vw;
   border: 1px solid #ccc;
   padding: 1rem;
   margin-bottom: 1rem;

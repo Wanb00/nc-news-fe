@@ -19,18 +19,15 @@ const HomePage = () => {
     }, []);
 
     return (
-        <div className="container">
-            <header className="header">
-                <nav>
-                    <Link to="/articles" className="nav-link">Articles</Link>
-                </nav>
-            </header>
-            <h1>Latest Articles</h1>
-            {loading ? (<p>Loading...</p>) : (
-                latestArticles.map((article) => (
-                    <ArticleCard key={article.article_id} article={article} />                ))
-                )}
-        </div>
+        <section className="container">
+            <h1 className="latest-articles">Latest Articles</h1>
+            <section className="latest-article-section">
+                {loading ? (<p>Loading...</p>) : (
+                    latestArticles.map((article) => (
+                        <ArticleCard key={article.article_id} article={article} />                ))
+                    )}
+            </section>
+        </section>
     );
 };
 
