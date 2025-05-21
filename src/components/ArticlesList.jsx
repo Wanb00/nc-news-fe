@@ -16,12 +16,14 @@ const ArticlesList = () => {
 
     return (
         <div className="container">
-            <h1>All Articles</h1>
-            {loading ? 
-            (<p>Loading articles...</p>) 
-            : articles.length === 0 ? (<p>No articles found.</p>) 
-            : (articles.map((article) => (<ArticleCard key={article.article_id} article={article} /> )) 
-            )}
+            <h1 className="all-articles">All Articles</h1>
+            <section className="articles-list-section">
+                {loading ? 
+                (<p>Loading articles...</p>) 
+                : articles.length === 0 ? (<p>No articles found.</p>) 
+                : (articles.map((article) => (<ArticleCard key={article.article_id} article={article} /> )) 
+                )}
+            </section>
         </div>
     );
 };
