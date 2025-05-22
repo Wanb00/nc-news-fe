@@ -133,3 +133,9 @@ textarea {
   padding: 5px 0;
   font-size: 1.2rem;
 }
+
+.delete-comment-btn {
+  display: block;
+  margin-top: 15px;
+  padding: 3px 5px;
+}

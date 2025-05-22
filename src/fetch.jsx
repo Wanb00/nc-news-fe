@@ -40,4 +40,9 @@ export const updateArticleVotes = (article_id, voteChange) => {
 export const postComment = (article_id, username, body) => {
     return apiClient.post(`/articles/${article_id}/comments`, { username, body })
     .then((res) => res.data.comment);
-}
+};
+
+export const deleteComment = (comment_id) => {
+    return apiClient.delete(`/comments/${comment_id}`)
+    .then((res) => res.data);
+};
