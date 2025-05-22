@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getArticleById, getCommentsByArticle } from "../fetch";
+import { getArticleById, getCommentsByArticle, updateArticleVotes } from "../fetch";
 import CommentCard from "./CommentCard";
 
 
@@ -9,6 +9,10 @@ const ArticlePage = () => {
     const [article, setArticle] = useState(null);
     const [comments, setComments] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    
+    const [votes, setVotes] = useState(0);
+    const [userVote, setUserVote] = useState(0);
 
     useEffect(() => {
         Promise.all([
@@ -18,10 +22,29 @@ const ArticlePage = () => {
         .then(([article, commentsArr]) => {
             console.log(commentsArr)
             setArticle(article);
+            setVotes(article.votes)
             setComments(commentsArr);
             setLoading(false);
         })
     }, [article_id])
+
+    const handleVote = (change) => {
+        const newVote = userVote === change ? 0 : change;
+        const voteDif = newVote - userVote;
+
+        setVotes((curr) => curr + voteDif);
+        setUserVote(newVote);
+        setError(null);
+
+        updateArticleVotes(article_id, voteDif)
+        .then((updatedArticle) => {
+            setVotes(updatedArticle.votes);
+        })
+        .catch(() => {
+            setVotes((curr) => curr - voteDif);
+            setError("Vote failed. Please try again.");
+        })
+    }
 
     if (loading) return <p>Loading article...</p>;
     if (!article) return <p>Article not found.</p>;
@@ -34,6 +57,10 @@ const ArticlePage = () => {
                 <p><strong>Author:</strong> {article.author}</p>
                 <p><strong>Topic:</strong> {article.topic}</p>
                 <p><strong>Posted:</strong> {new Date(article.created_at).toLocaleString()}</p>
+                <p><strong>Votes:</strong> {votes}</p>
+                <button className={userVote === 1 ? "active vote-btn" : "vote-btn"} onClick={() => handleVote(1)} >⬆️</button>
+                <button className={userVote === -1 ? "active vote-btn" : "vote-btn"} onClick={() => handleVote(-1)} >⬇️</button>
+                {error && <p className="error">{error}</p>}
                 <article>{article.body}</article>     
             </section>
             <section className="comments-section">

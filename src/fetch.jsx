@@ -28,3 +28,11 @@ export const getCommentsByArticle = (article_id) => {
         }
     })
 }
+
+export const updateArticleVotes = (article_id, voteChange) => {
+    return apiClient.patch(`articles/${article_id}`, { inc_votes: voteChange })
+    .then((res) => res.data.article)
+    .catch((err) => {
+        throw err;
+    })
+}
