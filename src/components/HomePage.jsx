@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllArticles } from "../fetch";
 import { Link } from "react-router-dom";
 import '../App.css'
-import ArticleCard from "./ArticleCard";
+import ArticleCard from "./article components/ArticleCard";
 
 const HomePage = () => {
     const [latestArticles, setLatestArticles] = useState([]);
