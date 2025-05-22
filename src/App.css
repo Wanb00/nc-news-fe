@@ -82,6 +82,11 @@
   padding-top: 1rem;
 }
 
+.comments-section > h3 {
+  font-size: 1.3rem;
+  text-decoration: underline;
+}
+
 .comment-card {
   background-color: #474545;
   padding: 1rem;
@@ -105,4 +110,26 @@
 
 .error {
   color: red;
+}
+
+.success {
+  color: rgb(89, 179, 89);
+}
+
+.add-comment > h3 {
+  text-decoration: underline;
+  font-size: 1.3rem;
+}
+
+textarea {
+  width: 60vw;
+  height: 7vh;
+}
+
+.post-comment-btn {
+  margin-top: 20px;
+  display: block;
+  width: 20vw;
+  padding: 5px 0;
+  font-size: 1.2rem;
 }

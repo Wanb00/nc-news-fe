@@ -16,7 +16,7 @@ export const getAllArticles = () => {
 export const getArticleById = (article_id) => {
     return apiClient.get(`/articles/${article_id}`)
     .then((res) => res.data.article);
-}
+};
 
 export const getCommentsByArticle = (article_id) => {
     return apiClient.get(`/articles/${article_id}/comments`)
@@ -25,14 +25,19 @@ export const getCommentsByArticle = (article_id) => {
             return res.data.comments;
         } else {
             return [];
-        }
-    })
-}
+        };
+    });
+};
 
 export const updateArticleVotes = (article_id, voteChange) => {
     return apiClient.patch(`articles/${article_id}`, { inc_votes: voteChange })
     .then((res) => res.data.article)
     .catch((err) => {
         throw err;
-    })
+    });
+};
+
+export const postComment = (article_id, username, body) => {
+    return apiClient.post(`/articles/${article_id}/comments`, { username, body })
+    .then((res) => res.data.comment);
 }
