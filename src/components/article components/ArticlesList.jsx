@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
-import { getAllArticles } from "../fetch";
+import { getAllArticles } from "../../fetch";
 import ArticleCard from "./ArticleCard";
-import '../App.css';
+import '../../App.css';
+import useLoadingError from "../../hooks/useLoadingError";
 
-const ArticlesList = () => {
-    const [articles, setArticles] = useState([]);
-    const [loading, setLoading] = useState(true);
+const ArticlesList = ({ articles, setArticles}) => {
+    const { loading, error, startLoading, handleError, finishLoading } = useLoadingError();
 
     useEffect(() => {
-        getAllArticles().then((data) => {
-            setArticles(data);
-            setLoading(false);
+        startLoading();
+        getAllArticles().then((allArticles) => {
+            setArticles(allArticles);
+            finishLoading();
         })
-    }, [])
+        .catch(handleError)
+    }, [setArticles])
 
     return (
         <div className="container">

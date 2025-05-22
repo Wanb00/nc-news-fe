@@ -1,25 +1,29 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getArticleById, getCommentsByArticle, postComment, updateArticleVotes } from "../fetch";
-import CommentCard from "./CommentCard";
+import { getArticleById, getCommentsByArticle, postComment, updateArticleVotes } from "../../fetch";
+import CommentCard from "../CommentCard";
+import useLoadingError from "../../hooks/useLoadingError";
 
 
 const ArticlePage = () => {
     const { article_id } = useParams();
     const [article, setArticle] = useState(null);
     const [comments, setComments] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const { loading, startLoading, finishLoading } = useLoadingError();
     
+    // VOTE STATES
+    const [error, setVoteError] = useState(null);
     const [votes, setVotes] = useState(0);
     const [userVote, setUserVote] = useState(0);
 
+    // COMMENT STATES
     const [commentBody, setCommentBody] = useState("");
     const [isPosting, setIsPosting] = useState(false);
     const [postError, setPostError] = useState(null);
     const [success, setSuccess] = useState(false);
 
     useEffect(() => {
+        startLoading();
         Promise.all([
             getArticleById(article_id),
             getCommentsByArticle(article_id)
@@ -28,7 +32,7 @@ const ArticlePage = () => {
             setArticle(article);
             setVotes(article.votes)
             setComments(commentsArr);
-            setLoading(false);
+            finishLoading();
         })
     }, [article_id])
 
@@ -38,7 +42,7 @@ const ArticlePage = () => {
 
         setVotes((curr) => curr + voteDif);
         setUserVote(newVote);
-        setError(null);
+        setVoteError(null);
 
         updateArticleVotes(article_id, voteDif)
         .then((updatedArticle) => {
@@ -46,7 +50,7 @@ const ArticlePage = () => {
         })
         .catch(() => {
             setVotes((curr) => curr - voteDif);
-            setError("Vote failed. Please try again.");
+            setVoteError("Vote failed. Please try again.");
         });
     };
 
