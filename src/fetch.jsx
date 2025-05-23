@@ -22,13 +22,8 @@ export const getArticleById = (article_id) => {
 
 export const getCommentsByArticle = (article_id) => {
     return apiClient.get(`/articles/${article_id}/comments`)
-    .then((res) => {
-        if (res.data && res.data.comments) {
-            return res.data.comments;
-        } else {
-            return [];
-        };
-    });
+    .then((res) => res.data.comments);
+        
 };
 
 export const updateArticleVotes = (article_id, voteChange) => {
