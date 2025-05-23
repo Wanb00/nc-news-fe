@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllArticles } from "../fetch";
+import { getArticles } from "../fetch";
 import { Link } from "react-router-dom";
 import '../App.css'
 import ArticleCard from "./article components/ArticleCard";
@@ -9,7 +9,7 @@ const HomePage = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        getAllArticles().then((articles) => {
+        getArticles().then((articles) => {
             const sorted = articles
             .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
             .slice(0, 3);

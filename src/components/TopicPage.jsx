@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom"
 import useLoadingError from "../hooks/useLoadingError";
-import { getArticlesByTopic } from "../fetch";
+import { getArticles } from "../fetch";
 
 
 const TopicPage = ({ articles, setArticles }) => {
@@ -10,7 +10,7 @@ const TopicPage = ({ articles, setArticles }) => {
 
     useEffect(() => {
         startLoading();
-        getArticlesByTopic(topic)
+        getArticles(topic)
             .then((articles) => {
                 setArticles(articles);
                 finishLoading();

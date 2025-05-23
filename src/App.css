@@ -45,16 +45,35 @@
 }
 
 .dropdown-container {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 #topic-select {
-  font-size: 1.1rem;
-  padding: 3.5px 5px;
+  font-size: 1rem;
+  padding: 3px 5px;
   margin-left: 10px;
 }
+
+.sort-controls {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+#sort-by {
+  font-size: 1rem;
+  padding: 3px 5px;
+  width: 6rem;
+}
+
+.order-btn {
+  font-size: 1rem;
+  padding: 3px 5px;
+  margin-left: 10px;
+}
+
 
 .all-articles {
   text-align: center;
