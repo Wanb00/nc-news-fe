@@ -44,6 +44,18 @@
   justify-content: center;
 }
 
+.dropdown-container {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#topic-select {
+  font-size: 1.1rem;
+  padding: 3.5px 5px;
+  margin-left: 10px;
+}
+
 .all-articles {
   text-align: center;
   font-size: 2.5rem;

@@ -31,7 +31,7 @@ export const getCommentsByArticle = (article_id) => {
 
 export const updateArticleVotes = (article_id, voteChange) => {
     return apiClient.patch(`articles/${article_id}`, { inc_votes: voteChange })
-    .then((res) => res.data.article)
+    .then((res) => res.data.article);
 };
 
 export const postComment = (article_id, username, body) => {
@@ -43,3 +43,14 @@ export const deleteComment = (comment_id) => {
     return apiClient.delete(`/comments/${comment_id}`)
     .then((res) => res.data);
 };
+
+export const getTopics = () => {
+    return apiClient.get(`/topics`)
+    .then((res) => res.data.topics);
+}
+
+export const getArticlesByTopic = (topic) => {
+    return apiClient.get(`/articles?topic=${topic}`)
+    .then((res) => res.data.articles);
+}
+
