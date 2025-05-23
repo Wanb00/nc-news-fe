@@ -15,7 +15,9 @@ const TopicPage = ({ articles, setArticles }) => {
                 setArticles(articles);
                 finishLoading();
             })
-            .catch(handleError);
+            .catch(() => {
+                handleError("Topic not found or has no articles");
+            });
     }, [topic, setArticles]);
     
     return (

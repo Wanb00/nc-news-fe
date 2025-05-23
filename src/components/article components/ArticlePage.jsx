@@ -9,17 +9,15 @@ const ArticlePage = () => {
     const { article_id } = useParams();
     const [article, setArticle] = useState(null);
     const [comments, setComments] = useState([]);
-    const { loading, startLoading, finishLoading } = useLoadingError();
+    const { error, loading, startLoading, finishLoading, handleError } = useLoadingError();
     
     // VOTE STATES
-    const [error, setVoteError] = useState(null);
     const [votes, setVotes] = useState(0);
     const [userVote, setUserVote] = useState(0);
 
     // COMMENT STATES
     const [commentBody, setCommentBody] = useState("");
     const [isPosting, setIsPosting] = useState(false);
-    const [postError, setPostError] = useState(null);
     const [success, setSuccess] = useState(false);
 
     useEffect(() => {
@@ -34,6 +32,7 @@ const ArticlePage = () => {
             setComments(commentsArr);
             finishLoading();
         })
+        .catch(handleError)
     }, [article_id])
 
     const handleVote = (change) => {
@@ -42,7 +41,6 @@ const ArticlePage = () => {
 
         setVotes((curr) => curr + voteDif);
         setUserVote(newVote);
-        setVoteError(null);
 
         updateArticleVotes(article_id, voteDif)
         .then((updatedArticle) => {
@@ -50,7 +48,7 @@ const ArticlePage = () => {
         })
         .catch(() => {
             setVotes((curr) => curr - voteDif);
-            setVoteError("Vote failed. Please try again.");
+            handleError("Vote failed. Please try again.");
         });
     };
 
@@ -58,7 +56,6 @@ const ArticlePage = () => {
         e.preventDefault();
         if (!commentBody.trim()) return;
         setIsPosting(true);
-        setPostError(null);
         setSuccess(false);
 
         postComment(article.article_id, "jessjelly", commentBody)
@@ -68,7 +65,7 @@ const ArticlePage = () => {
             setSuccess(true);
         })
         .catch((err) => {
-            setPostError("Failed to post comment. Try again.");
+            handleError("Failed to post comment. Try again.");
         })
         .finally(() => {
             setIsPosting(false)
@@ -106,7 +103,7 @@ const ArticlePage = () => {
                             {isPosting ? "Posting..." : "Post Comment"}
                         </button>
                         {success && <p className="success">Comment posted successfully!</p>}
-                        {error && <p className="error">{postError}</p>}
+                        {error && <p className="error">{error}</p>}
                     </form>
                 </section>
                 <h3>Comments</h3>

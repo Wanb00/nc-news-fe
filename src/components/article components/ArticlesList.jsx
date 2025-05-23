@@ -21,15 +21,14 @@ const ArticlesList = ({ articles, setArticles}) => {
             setArticles(articles);
             finishLoading();
         })
-        .catch(handleError)
+        .catch(() => {
+            handleError("Topic not found/No articles with this topic!")
+        })
     }, [setArticles, sort_by, order, selectedTopic])
 
     useEffect(() => {
         getTopics().then((topics) => {
             setTopics(topics);
-        })
-        .catch(() => {
-            setTopics([]);
         })
     }, [])
 
@@ -65,6 +64,7 @@ const ArticlesList = ({ articles, setArticles}) => {
                         </option>
                     ))}
                 </select>
+                {error && <p className="error">{error}</p>}
             </div>
             <div className="sort-controls">
                 <label htmlFor="sort-by">Sort By: </label>

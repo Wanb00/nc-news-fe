@@ -11,7 +11,9 @@ const useLoadingError = () => {
 
     const handleError = (err) => {
         setLoading(false);
-        setError(err.message || "Something went wrong");
+        const message = typeof err === "string" ? err 
+        : err?.response?.data?.msg || err.message ||  "Something went wrong";
+        setError(message);
     };
 
     const finishLoading = () => setLoading(false);
