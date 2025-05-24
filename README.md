@@ -1,12 +1,34 @@
 # Front-end NC-News
+## Summary
+This front-end project utilises the back-end server project to replicate and create a functioning news/article webpage. The webpage contains functionality such as upvoting or downvoting articles, posting and deleting comments, filtering articles.
+The following additions to be added:
+- Voting on comments
+- User authentication (back-end)
+- Write an article
+This project was created using:
+1. React.js
+2. HTML/CSS
+3. Axios (fetching)
+4. Lighthouse/Accessibility tools
+5. Netlify (hosting)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Back-end link: https://github.com/Wanb00/Back-end-Northcoders-News-
 
-Currently, two official plugins are available:
+## Cloning
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone using HTTPS by clicking the code<> drop down and copying the url.
+2. Head to your terminal and use: git clone "copied URL"
+3. CD into the repo
 
-## Expanding the ESLint configuration
+## Setup
+1. Use npm install to install all dependencies
+2. Use command: npm run dev to run the webpage locally
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Versions
+- axios: 1.9.0
+- react: 19.1.0
+- react-dom: 19.1.0
+- react-router-dom: 7.6.0
+
+
+This portfolio project was created as part of a Digital Skills Bootcamp in Software Engineering provided by [Northcoders](https://northcoders.com/)
