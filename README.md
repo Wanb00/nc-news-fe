@@ -12,7 +12,8 @@ This project was created using:
 4. Lighthouse/Accessibility tools
 5. Netlify (hosting)
 
-Back-end link: https://github.com/Wanb00/Back-end-Northcoders-News-
+### Back-end link: https://github.com/Wanb00/Back-end-Northcoders-News-
+### Hosted link: https://wan-nc-news-fe.netlify.app/
 
 ## Cloning
 
