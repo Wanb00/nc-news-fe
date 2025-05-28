@@ -12,18 +12,24 @@ This project was created using:
 4. Lighthouse/Accessibility tools
 5. Netlify (hosting)
 
-### Back-end link: https://github.com/Wanb00/Back-end-Northcoders-News-
-### Hosted link: https://wan-nc-news-fe.netlify.app/
+### Back-end Repo
+[Back-end link](https://github.com/Wanb00/Back-end-Northcoders-News-)
 
-## Cloning
-
-1. Clone using HTTPS by clicking the code<> drop down and copying the url.
-2. Head to your terminal and use: git clone "copied URL"
-3. CD into the repo
+### Hosted Version
+[Hosted](https://wan-nc-news-fe.netlify.app/)
 
 ## Setup
-1. Use npm install to install all dependencies
-2. Use command: npm run dev to run the webpage locally
+
+1. Clone using HTTPS by clicking the code<> drop down and copying the url.
+2. CD into the repo
+3. Install dependencies
+```zsh
+npm install
+```
+5. Run the server using
+```zsh
+npm run dev
+```
 
 ## Versions
 - axios: 1.9.0
