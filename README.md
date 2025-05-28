@@ -1,7 +1,7 @@
 # Front-end NC-News
 ## Summary
 This front-end project utilises the back-end server project to replicate and create a functioning news/article webpage. The webpage contains functionality such as upvoting or downvoting articles, posting and deleting comments, filtering articles.
-The following additions to be added:
+#### The following additions to be added:
 - Voting on comments
 - User authentication (back-end)
 - Write an article
