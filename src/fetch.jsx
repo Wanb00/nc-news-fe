@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const apiClient = axios.create({
+const apiClient = axios.create({
     baseURL: "https://back-end-northcoders-news.onrender.com/api"
 })
 
