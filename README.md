@@ -5,6 +5,7 @@ This front-end project utilises the back-end server project to replicate and cre
 - Voting on comments
 - User authentication (back-end)
 - Write an article
+
 This project was created using:
 1. React.js
 2. HTML/CSS
