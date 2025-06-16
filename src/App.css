@@ -34,7 +34,6 @@
 
 .latest-articles {
   text-align: center;
-  font-size: 2.5rem;
 }
 
 .latest-article-section {
@@ -73,26 +72,26 @@
   margin-left: 10px;
 }
 
-
 .all-articles {
   text-align: center;
   font-size: 2.5rem;
 }
 
 .articles-list-section {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
 }
 
 .article-card {
   display: flex;
   flex-flow: column wrap;
-  width: 50vw;
-  border: 1px solid #ccc;
+  width: 30vw;
+  border: 1px solid rgba(126, 120, 120, 0.521);
+  border-radius: 8px;
   padding: 1rem;
   margin-bottom: 1rem;
-  border-radius: 8px;
+  margin-left: 10px
 }
 
 .article-card h2 {
@@ -101,6 +100,10 @@
 
 .article-img {
   max-width: 350px;
+}
+
+.tags {
+  margin: 5px 0;
 }
 
 .article-section {
@@ -172,4 +175,65 @@ textarea {
   display: block;
   margin-top: 15px;
   padding: 3px 5px;
+}
+
+@media (max-width: 767px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    width: 108vw;
+  }
+
+  .nav-link {
+    font-size: 1.3rem;
+  }
+
+  .latest-article-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .article-card {
+    width: 90vw;
+    height: 430px;
+  }
+
+  .mobile-hidden {
+    visibility: hidden;
+  }
+
+  textarea {
+    width: 90vw;
+    height: 12vh;
+  }
+
+  .post-comment-btn {
+    width: 80vw;
+  }
+
+  .container {
+    padding-right: 0;
+  }
+
+  .latest-articles,
+  .all-articles {
+    font-size: 1.8rem;
+  }
+
+  .vote-btn {
+    font-size: 1rem;
+  }
+
+  #topic-select,
+  #sort-by,
+  .order-btn {
+    font-size: 0.9rem;
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .dropdown-container,
+  .sort-controls {
+    font-size: 1rem;
+  }
 }
