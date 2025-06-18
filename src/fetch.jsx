@@ -36,6 +36,11 @@ export const postComment = (article_id, username, body) => {
     .then((res) => res.data.comment);
 };
 
+export const postArticle = (articleDetails) => {
+    return apiClient.post(`/articles`, articleDetails )
+    .then((res) => res.data.article);
+}
+
 export const deleteComment = (comment_id) => {
     return apiClient.delete(`/comments/${comment_id}`)
     .then((res) => res.data);

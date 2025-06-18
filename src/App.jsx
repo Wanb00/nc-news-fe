@@ -7,6 +7,7 @@ import ArticlePage from './components/article components/ArticlePage'
 import Header from './components/Header'
 import TopicPage from './components/TopicPage'
 import NotFoundPage from './components/NotFoundPage'
+import PostArticle from './components/article components/PostArticle'
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -20,6 +21,7 @@ function App() {
         <Route path='/articles' element={<ArticlesList articles={articles} setArticles={setArticles} />} />
         <Route path='/articles/:article_id' element={<ArticlePage />} />
         <Route path='/topics/:topic' element={<TopicPage articles={articles} setArticles={setArticles} />} />
+        <Route path='/articles/post' element={<PostArticle />} />
       </Routes>
     </>
   )
