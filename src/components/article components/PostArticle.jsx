@@ -43,6 +43,7 @@ export default function PostArticle() {
 
   return (
     <form onSubmit={handleSubmit} className="post-article-form">
+      <h1>Post an article</h1>
       <input
         type="text"
         name="title"

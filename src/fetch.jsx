@@ -51,4 +51,7 @@ export const getTopics = () => {
     .then((res) => res.data.topics);
 }
 
-
+export const getUserByUsername = (username) => {
+    return apiClient.get(`/users/${username}`)
+    .then((res) => res.data.user)
+}
