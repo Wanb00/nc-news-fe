@@ -217,6 +217,11 @@ textarea {
   gap: 1.5rem;
 }
 
+.post-article-form h1 {
+  text-align: center;
+  margin: 10px 0 0 0;
+}
+
 .post-article-input,
 .post-article-textarea {
   border: 1px solid #ccc;
