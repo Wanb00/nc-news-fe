@@ -62,11 +62,23 @@
 .dropdown-menu {
   list-style: none;
   position: absolute;
-  margin-top: 4px;
+  margin-top: 12px;
   background-color: #d4cfcffb;
   border-radius: 5px;
   padding: 0 0.95rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.profile-btn {
+  font-size: 1rem;
+  padding: 5px 0;
+  color: rgb(77, 75, 75);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.profile-btn:hover {
+  text-decoration: underline;
 }
 
 .logout-btn {
@@ -75,7 +87,7 @@
   color: #dc2626;
   font-weight: bold;
   cursor: pointer;
-  padding: 10px 0;
+  padding: 5px 0;
   text-align: right;
 }
 

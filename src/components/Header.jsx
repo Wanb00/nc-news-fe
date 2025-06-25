@@ -60,9 +60,9 @@ const Header = () => {
               {showLogout && (
                 <ul className="dropdown-menu" id="user-menu" role="menu">
                   <li role="none">
-                    <button className="profile-btn">
+                    <Link to="/profile" className="profile-btn">
                     Profile
-                    </button>
+                    </Link>
                   </li>
                   <li role="none">
                     <button onClick={handleLogout} className="logout-btn" role="menuitem">
