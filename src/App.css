@@ -62,11 +62,23 @@
 .dropdown-menu {
   list-style: none;
   position: absolute;
-  margin-top: 4px;
+  margin-top: 12px;
   background-color: #d4cfcffb;
   border-radius: 5px;
   padding: 0 0.95rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.profile-btn {
+  font-size: 1rem;
+  padding: 5px 0;
+  color: rgb(77, 75, 75);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.profile-btn:hover {
+  text-decoration: underline;
 }
 
 .logout-btn {
@@ -75,7 +87,7 @@
   color: #dc2626;
   font-weight: bold;
   cursor: pointer;
-  padding: 10px 0;
+  padding: 5px 0;
   text-align: right;
 }
 
@@ -157,6 +169,7 @@
 .article-card {
   display: flex;
   flex-flow: column wrap;
+  max-width: 350px;
   width: 30vw;
   border: 1px solid rgba(126, 120, 120, 0.521);
   border-radius: 8px;
@@ -170,7 +183,7 @@
 }
 
 .article-img {
-  max-width: 350px;
+  max-width: 330px;
 }
 
 .tags {
@@ -311,7 +324,33 @@ textarea {
   text-align: center;
 }
 
+.profile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.profile-header {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-name {
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.profile-articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0.1rem;
+  width: 72%;
+  justify-content: center;
+}
 
 @media (max-width: 767px) {
   .header {

@@ -55,3 +55,9 @@ export const getUserByUsername = (username) => {
     return apiClient.get(`/users/${username}`)
     .then((res) => res.data.user)
 }
+
+export const getArticlesByUser = (username) => {
+    return apiClient.get(`/users/${username}/articles`)
+    .then((res) => res.data.articles
+    )
+}
