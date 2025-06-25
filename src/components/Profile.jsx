@@ -21,14 +21,20 @@ const Profile = () => {
   }, [loggedInUser]);
 
   return (
-    <section>
-      {articles.length === 0 ? (
-        <p>No articles found.</p>
-      ) : (
-        articles.map((article) => (
-          <ArticleCard key={article.article_id} article={article} />
-        ))
-      )}
+    <section className="profile">
+      <div className="profile-header">
+        <h1 className="profile-name">{loggedInUser.username}</h1>
+        <h2>Articles</h2>
+      </div>
+      <section className="profile-articles">
+        {articles.length === 0 ? (
+          <p>No articles found.</p>
+        ) : (
+          articles.map((article) => (
+            <ArticleCard key={article.article_id} article={article} />
+          ))
+        )}
+      </section>
     </section>
   );
 };
