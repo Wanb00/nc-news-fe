@@ -18,7 +18,7 @@ const Profile = () => {
       }
     };
     fetchArticles();
-  }, []);
+  }, [loggedInUser]);
 
   return (
     <section>
