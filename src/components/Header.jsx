@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../App.css";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 
@@ -8,6 +8,20 @@ const Header = () => {
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
   const [showLogout, setShowLogout] = useState(false);
   const navigate = useNavigate();
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setShowLogout(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+  }, [])
+
 
   const handleLogout = () => {
     setLoggedInUser(null);
@@ -15,7 +29,7 @@ const Header = () => {
     navigate("/");
   };
 
-  const toggleLogout = () => {
+  const toggleDropdown = () => {
     setShowLogout((curr) => !curr);
   };
 
@@ -40,17 +54,17 @@ const Header = () => {
         </nav>
 
         {loggedInUser ? (
-          <div className="user-info">
+          <div className="user-info" ref={dropdownRef}>
             <img
               src={loggedInUser.avatar_url}
-              onClick={toggleLogout}
+              onClick={toggleDropdown}
               alt={loggedInUser.username}
               width={40}
               height={40}
             />
             <div className="dropdown-container">
               <button
-                onClick={toggleLogout}
+                onClick={toggleDropdown}
                 className="user-toggle"
                 aria-expanded={showLogout}
                 aria-controls="user-menu"
