@@ -61,3 +61,8 @@ export const getArticlesByUser = (username) => {
     .then((res) => res.data.articles
     )
 }
+
+export const updateCommentVotes = (comment_id, voteChange) => {
+    return apiClient.patch(`comments/${comment_id}`, { inc_votes: voteChange })
+    .then((res) => res.data.comment)
+}
