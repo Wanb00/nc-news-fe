@@ -358,6 +358,11 @@ textarea {
   justify-content: center;
 }
 
+.note {
+  font-size: 0.75rem;
+  opacity: 40%;
+}
+
 @media (max-width: 767px) {
   .header {
     flex-direction: column;

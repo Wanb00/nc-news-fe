@@ -43,6 +43,7 @@ const DevLogin = () => {
       />
       <button type="submit">Log In</button>
       {error && <p className="error-msg">{error}</p>}
+      <p className="note">For precoded users feel free to look at those through the backend data files</p>
     </form>
   );
 };
