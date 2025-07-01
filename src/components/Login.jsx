@@ -1,35 +1,44 @@
 import { useState, useContext } from "react";
-import { getUserByUsername } from "../fetch";
+import { userLogin } from "../fetch";
 import { UserContext } from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 
 const DevLogin = () => {
   const [inputUsername, setInputUsername] = useState("");
+  const [inputPassword, setInputPassword] = useState("");
   const [error, setError] = useState("");
   const { setLoggedInUser } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     setError("");
 
-    getUserByUsername(inputUsername)
-      .then((user) => {
-        setLoggedInUser(user);
+    userLogin(inputUsername, inputPassword)
+      .then((data) => {
+        localStorage.setItem("token", data.token);
+        setLoggedInUser(data.user);
         navigate("/");
       })
       .catch(() => {
-        setError("Invalid username");
+        setError("Invalid Credentials");
       });
   };
 
   return (
-    <form onSubmit={handleSubmit} className="dev-login-form">
+    <form onSubmit={handleLogin} className="dev-login-form">
       <input
         type="text"
         placeholder="Enter username"
         value={inputUsername}
         onChange={(e) => setInputUsername(e.target.value)}
+        required
+      />
+      <input
+        type="text"
+        placeholder="Enter password"
+        value={inputPassword}
+        onChange={(e) => setInputPassword(e.target.value)}
         required
       />
       <button type="submit">Log In</button>
