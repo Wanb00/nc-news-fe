@@ -8,7 +8,7 @@ import Header from './components/Header'
 import TopicPage from './components/TopicPage'
 import NotFoundPage from './components/NotFoundPage'
 import PostArticle from './components/article components/PostArticle'
-import DevLogin from './components/DevLogin'
+import DevLogin from './components/Login'
 import Profile from './components/Profile'
 
 function App() {

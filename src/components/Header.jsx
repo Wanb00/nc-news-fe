@@ -24,6 +24,7 @@ const Header = () => {
 
 
   const handleLogout = () => {
+    localStorage.removeItem("token");
     setLoggedInUser(null);
     setShowLogout(false);
     navigate("/");
@@ -49,7 +50,7 @@ const Header = () => {
             Post Article
           </Link>
           <Link to="/dev-login" className="nav-link">
-            Dev Login
+            Login
           </Link>
         </nav>
 
