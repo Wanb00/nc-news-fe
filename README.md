@@ -2,9 +2,8 @@
 ## Summary
 This front-end project utilises the back-end server project to replicate and create a functioning news/article webpage. The webpage contains functionality such as upvoting or downvoting articles, posting and deleting comments, filtering articles.
 #### The following additions to be added:
-- Voting on comments
-- User authentication (back-end)
 - Write an article
+- Sign-up
 
 This project was created using:
 1. React.js
@@ -59,5 +58,6 @@ This project demonstrates proficiency in DOM, Hooks, Wireframes + User Stories, 
 2. **DOM**: Management and Manipulation of DOM 
 3. **Accessibility**: Utilising 3rd party software to conform with accessibility protocols
 4. **Incremental Development**: Building features incrementally with git version control
+5. **Json Web Tokens (JWT)**: Secure storage of logins for user persistence
 
 This portfolio project was created as part of a Digital Skills Bootcamp in Software Engineering provided by [Northcoders](https://northcoders.com/)
