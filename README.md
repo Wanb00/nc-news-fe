@@ -2,8 +2,7 @@
 ## Summary
 This front-end project utilises the back-end server project to replicate and create a functioning news/article webpage. The webpage contains functionality such as upvoting or downvoting articles, posting and deleting comments, filtering articles.
 #### The following additions to be added:
-- Write an article
-- Sign-up
+- Sign-up page
 
 This project was created using:
 1. React.js
